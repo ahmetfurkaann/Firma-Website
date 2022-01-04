@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+<style>
+body {
+  font-family: Verdana, monospace, sans-serif;
+  font-weight: bold;
+  text-align: justify;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), urL(https://images.pexels.com/photos/2280568/pexels-photo-2280568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  
+
+}
+.baslık{
+  color: #fff;
+}
+.table{
+  color: #fff;
+  text-align: center;
+  
+}
+.table tr{
+  border: 1px solid #fff;
+  text-align: center;
+}
+</style>
+
+
+<h3 style= "text-align: center;" class="baslık">Biontech Aşısı Olan ve Belirli Bir Hastalığı Önceden Geçirmiş Olan Çalışanlardan COVID'e Yakalananların Listesi</h3><br>
+
+
+<form action="http://127.0.0.1:5000/veri/38" method="POST">
+<input type="text" name = "hastalikadi" class="form-control" maxlength="64" placeholder="Ara..."><br>
+<button type="submit" class="btn btn-danger ">Ara</button>
+</form><br><br>
+
+
+
+{% if data %}
+<h3 style= "text-align: center;" class="baslık">{{hastalikadi}} Hastalığına Sahip ve Korona Olmuş Çalışanların Listesi</h3><br>
+<table class="table">
+    <thead>
+      <tr bgcolor="#607D8B" align="center">
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">İsim</th>
+        <th scope="col">Soyisim</th>
+        <th scope="col">Yakalandığı Tarih</th>
+        <th scope="col">Negatif Tarihi</th>
+        <th scope="col">Hastalık Adı</th>
+        <th scope="col">Aşı ID</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+     {% for d in data %} 
+      <tr>
+        <th scope="row">{{d.tc_no}}</th>
+        <td>{{d.isim}}</td>
+        <td>{{d.soyisim}}</td>
+        <td>{{d.yakalandigi_tarih}}</td>
+        <td>{{d.negatif_tarihi}}</td>
+        <td>{{d.hastalik_adi}}</td>
+        <td>{{d.asi_id}}</td>
+      </tr>
+      {% endfor %}
+      </tbody> 
+</table>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+{% else %}
+<div class = "alert alert-danger">Henüz bir veri girilmedi!</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% endif %}
+
+<br><br><br>
+{% endblock body %}

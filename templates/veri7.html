@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+<style>
+body {
+  font-family: Verdana, monospace, sans-serif;
+  font-weight: bold;
+  text-align: justify;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), urL(https://images.pexels.com/photos/2280568/pexels-photo-2280568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  
+
+
+}
+.baslık{
+  color: #fff;
+}
+
+
+</style>
+
+<!--<div class="jumbotron">-->
+<br><br>
+            <h3 style= "text-align: center;" class="baslık">ÇALIŞANA AİT COVID BİLGİSİ EKLE</h3><br><br>
+            <form action = "http://127.0.0.1:5000/veri/7" method = "POST" class="baslık">
+    
+                Tc Kimlik Numarası<br>
+                <input type = "text" name = "tcno" class="form-control"/><br>
+
+                Yakalandığı Tarih<br>
+                <input type="date" name="yakalandigitarih" class="form-control"><br>
+ 
+                Negatif Olma Tarihi<br>
+                <input type="date" name="negatiftarih" class="form-control"><br>
+ 
+                Aşı Durumu<br>
+                <input type = "text" name = "asidurumu" class="form-control"/><br> 
+
+                <input type = "submit" value = "Ekle" class="btn btn-success"/><br>
+      </form>
+ 
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+
+
+{% endblock body %}

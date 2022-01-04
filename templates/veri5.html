@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+<style>
+body {
+  font-family: Verdana, monospace, sans-serif;
+  font-weight: bold;
+  text-align: justify;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), urL(https://images.pexels.com/photos/2280568/pexels-photo-2280568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  
+
+}
+.buton{
+    margin: 20px 30px;
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius:5px 5px;
+    width: 60px;
+
+
+}
+.baslık{
+  color: #fff;
+}
+.table{
+  color: #fff;
+  text-align: center;
+  
+}
+.table tr{
+  border: 1px solid #fff;
+  text-align: center;
+}
+
+</style>
+
+
+<h3 class="baslık" style= "text-align: center;">Çalışana Ait Hastalık Bilgisi Ekle, Sil ve Güncelle</h3>
+<td><a href="/veri/4" class ="buton">Ekle</a></td>
+{% if hastalik %}
+<table class="table">
+    <thead>
+        <tr bgcolor="#607D8B" align="center">
+        <th scope="col">ID</th>
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">Hastalık Adı</th>
+        <th scope="col">Hastalık Tarihi</th>
+        <th scope="col">İlaç</th>
+        <th scope="col">Doz</th>
+        <th scope="col">Semptom</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for hasta in hastalik %}
+      <tr>
+        <th scope="row">{{hasta.id}}</th>
+        <th scope="row">{{hasta.tc_no}}</th>
+        <td>{{hasta.hastalik_adi}}</td>
+        <td>{{hasta.hastalik_tarihi}}</td>
+        <td>{{hasta.ilac}}</td>
+        <td>{{hasta.doz}}</td>
+        <td>{{hasta.semptomlar}}</td>
+        <td><a href="/veri/5/edit/{{hasta.id}}" class = "btn btn-info">Güncelle</a></td>
+        <td><a href="/veri/5/delete/{{hasta.id}}" class = "btn btn-danger">Sil</a></td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>  
+{% else %}
+<div class = "alert alert-danger">Henüz hastalık bulunmuyor...</div>
+{% endif %}
+
+
+
+
+
+
+
+
+{% endblock body %}
+
+
+
+

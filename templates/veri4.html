@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+<style>
+body {
+  font-family: Verdana, monospace, sans-serif;
+  font-weight: bold;
+  text-align: justify;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), urL(https://images.pexels.com/photos/2280568/pexels-photo-2280568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  
+
+}
+.baslık{
+    color: #fff;
+    font-weight: bold;
+}
+.box{
+    color: #fff;
+    
+}
+.box input[type="submit"]{
+    background-color: #17a2b8;
+    margin: 10px 500px;
+    width: 150px;
+    height:40px;
+    border-radius: 30px 30px;
+}
+
+
+
+</style>
+            <h3 style= "text-align: center;" class="baslık">Çalışana Ait Hastalık ve Reçete Bilgisi Ekle</h3><br>
+            <div class="box">
+            <form action = "http://127.0.0.1:5000/veri/4" method = "POST" class="baslık">
+    
+                Tc Kimlik Numarası<br>
+                <input type = "text" name = "tcno" class="form-control"/><br>
+
+                Hastalık Adı<br>
+                <input type = "text" name = "hastalikadi" class="form-control"/><br>
+ 
+                Hasta olunma tarihi<br>
+                <input type="date" name="hastaliktarihi" class="form-control"><br>
+ 
+                İlaç<br>
+                <input type = "text" name = "ilac" class="form-control"/><br>
+ 
+                Doz<br>
+                <input type = "text" name = "doz" class="form-control"/><br>
+ 
+                Semptom<br>
+                <input type = "text" name = "semptom" class="form-control"/><br> 
+
+                <input type = "submit" value = "Ekle" class="btn btn-success"/><br>
+      </form>
+ 
+</div>
+<br><br><br><br><br><br><br><br><br>
+
+
+
+
+
+
+{% endblock body %}

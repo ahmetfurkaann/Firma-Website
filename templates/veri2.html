@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+<style>
+body {
+  font-family: Verdana, monospace, sans-serif;
+  font-weight: bold;
+  text-align: justify;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), urL(https://images.pexels.com/photos/2280568/pexels-photo-2280568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  
+
+}
+.buton{
+    margin: 20px 30px;
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    width:60px;
+}
+.baslık{
+  color: #fff;
+}
+.table{
+  color: #fff;
+  text-align: center;
+  
+}
+.table tr{
+  border: 1px solid #fff;
+  text-align: center;
+}
+
+</style>
+
+
+<h3 class="baslık" style= "text-align: center;">Çalışan Ekle Sil ve Güncelle</h3>
+<td><a href="/veri/1" class ="buton">Ekle</a></td>
+{% if elemanlar %}
+<table class="table">
+    <thead>
+       <tr bgcolor="#607D8B" align="center">
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">Eleman Adı</th>
+        <th scope="col">Eleman Soyadı</th>
+        <th scope="col">Kan Grubu</th>
+        <th scope="col">Doğduğu Şehir</th>
+        <th scope="col">Pozisyon</th>
+        <th scope="col">Maaş</th>
+        <th scope="col">Aşı Durumu</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for eleman in elemanlar %}
+      <tr>
+        <th scope="row">{{eleman.tc_no}}</th>
+        <td>{{eleman.isim}}</td>
+        <td>{{eleman.soyisim}}</td>
+        <td>{{eleman.kan_grubu}}</td>
+        <td>{{eleman.dogum_yeri}}</td>
+        <td>{{eleman.pozisyon}}</td>
+        <td>{{eleman.maas}}</td>
+        <td>{{eleman.asi_id}}</td>
+        <td><a href="/veri/2/edit/{{eleman.eleman_id}}" class = "btn btn-info">Güncelle</a></td>
+        <td><a href="/veri/2/delete/{{eleman.eleman_id}}" class = "btn btn-danger">Sil</a></td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>  
+{% else %}
+<div class = "alert alert-danger">Henüz eleman bulunmuyor...</div>
+{% endif %}
+
+
+
+
+
+
+
+
+{% endblock body %}
+
+
+
+

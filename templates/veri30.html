@@ -1,0 +1,205 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+<style>
+body {
+  font-family: Verdana, monospace, sans-serif;
+  font-weight: bold;
+  text-align: justify;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), urL(https://images.pexels.com/photos/2280568/pexels-photo-2280568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  
+
+}
+
+.baslık1{
+  color: #fff;
+}
+.table1{
+  width: 1100px;
+  color: #fff;
+  text-align: center;
+  
+}
+.table1 tr{
+  border: 1px solid #fff;
+  text-align: center;
+  height: 50px;
+}
+
+.baslık2{
+  color: #fff;
+}
+.table2{
+  width: 1100px;
+  color: #fff;
+  text-align: center;
+  
+}
+.table2 tr{
+  border: 1px solid #fff;
+  text-align: center;
+  height: 50px;
+}
+.baslık3{
+  color: #fff;
+}
+.table3{
+  width: 1100px;
+  color: #fff;
+  text-align: center;
+  
+}
+.table3 tr{
+  height: 50px;
+  border: 1px solid #fff;
+  text-align: center;
+}
+
+</style>
+
+
+<!---                       Aşı olmayıp korona olanlar                    --->
+
+<br>  
+<h3 style= "text-align: center;" class="baslık1">Aşı Olmayıp Korona Olanların Listesi</h3><br>
+{% if asisiz %}
+<table class="table1">
+    <thead>
+      <tr bgcolor="#607D8B" align="center">
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">İsim</th>
+        <th scope="col">Soyisim</th>
+        <th scope="col">Koronaya Yakalanma Tarihi</th>
+        <th scope="col">Korona Negatif Sonucunun Tarihi</th>
+        <th scope="col">Aşı ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for l in asisiz %}
+      <tr>
+        <th scope="row">{{l.tc_no}}</th>
+        <td>{{l.isim}}</th>
+        <td>{{l.soyisim}}</td>
+        <td>{{l.yakalandigi_tarih}}</td>
+        <td>{{l.negatif_tarihi}}</td>
+        <td>{{l.asi_id}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table><br><br>  
+{% else %}
+<div class = "alert alert-danger">Henüz bu kısıma ait bilgi bulunmuyor...</div>
+{% endif %}
+
+
+
+<!---                   sinovac olup korona olmayanlar                     --->
+
+
+<h3 style= "text-align: center;" class="baslık2">Sinovac Aşısı Olup Korona Olanların Listesi</h3><br>
+
+{% if sinovac %}
+<table class="table2">
+    <thead>
+      <tr bgcolor="#607D8B" align="center">
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">İsim</th>
+        <th scope="col">Soyisim</th>
+        <th scope="col">Koronaya Yakalanma Tarihi</th>
+        <th scope="col">Korona Negatif Sonucunun Tarihi</th>
+        <th scope="col">Aşı ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for l in sinovac %}
+      <tr>
+        <th scope="row">{{l.tc_no}}</th>
+        <td>{{l.isim}}</th>
+        <td>{{l.soyisim}}</td>
+        <td>{{l.yakalandigi_tarih}}</td>
+        <td>{{l.negatif_tarihi}}</td>
+        <td>{{l.asi_id}}</td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table><br><br>  
+
+{% else %}
+<div class = "alert alert-danger">Henüz bu kısıma ait bilgi bulunmuyor.../div>
+{% endif %}
+
+
+
+
+<!---                           biontech olup korona olanlar                      --->
+
+
+<h3 style= "text-align: center;" class="baslık3">Biontech Aşısı Olup Korona Olanların Listesi</h3><br>
+
+{% if biontech %}
+<table class="table3">
+    <thead>
+      
+      <tr  bgcolor="#607D8B" align="center">
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">İsim</th>
+        <th scope="col">Soyisim</th>
+        <th scope="col">Koronaya Yakalanma Tarihi</th>
+        <th scope="col">Korona Negatif Sonucunun Tarihi</th>
+        <th scope="col">Aşı ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for l in biontech %}
+      <tr>
+        <th scope="row">{{l.tc_no}}</th>
+        <td>{{l.isim}}</th>
+        <td>{{l.soyisim}}</td>
+        <td>{{l.yakalandigi_tarih}}</td>
+        <td>{{l.negatif_tarihi}}</td>
+        <td>{{l.asi_id}}</td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table><br><br>  
+<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+<br><br><br><br><br>
+{% else %}
+<div class = "alert alert-danger">Henüz bu kısıma ait bilgi bulunmuyor...</div>
+{% endif %}
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Aşı Adı', 'Kişi Sayısı'],
+          ['Aşı Olmayan',     {{bir}}],
+          ['Sinovac',      {{iki}}],
+          ['Korona',  {{uc}}]
+        ]);
+
+        var options = {
+          title: 'İstatistikler',
+          is3D: true,
+        };
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+    </script>
+
+
+
+
+
+{% endblock body %}
+
+
+
+

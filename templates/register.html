@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+
+
+
+<style>
+
+body {
+            font-family: Verdana, monospace, sans-serif;
+            font-weight: bold;
+            text-align: justify;
+            background-repeat: no-repeat;
+            background-image:linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)), url(https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+}
+.box{
+    background-color:#00838F;
+     width: 500px;
+     height: 600px;
+     padding: 30px;
+     margin: 30px 700px ;
+     border-radius: 40px 40px;
+     border-style: groove;
+
+
+}
+
+.kayıt_ol{
+font-weight: 600;
+font-size: 30px;
+font-family: Verdana;
+}
+.label{
+font-family:Monospace;
+color: black;
+font-size: 20px;
+
+}
+.label h3[type="a"]{
+   text-align: center;
+   font-weight: 600;
+
+
+}
+
+.btn1{
+
+cursor: pointer;
+font-size: 16px;
+color: #9E9E9E;
+width: 100px;
+height:40px;
+border-radius:20px;
+border: none;
+background: #212121;
+margin: auto 40px;
+
+
+}
+</style>
+
+<div class="box">
+<div class = "row">
+    <div class = "col-md-6 offset-md-3">
+
+
+
+
+    {% from "includes/formhelpers.html" import render_field %}
+    <form action = "http://127.0.0.1:5000/register" method="post" class = "label">
+        <h3 type="a">KAYIT OL</h3><hr>
+        İsim Soyisim<br>
+        <input type = "text" name = "name" class="form-control"/><br>
+ 
+        E-Posta Adresi<br>
+        <input type = "text" name = "eposta" class="form-control"/><br>
+ 
+        Kullanıcı Adı<br>
+        <input type = "text" name = "username" class="form-control"/><br>
+ 
+        Parola<br>
+        <input type = "password" name = "password" class="form-control"/><br>
+
+        <button type="submit" class="btn1">Kayıt Ol</button>
+
+    </form>
+
+    </div>
+    </div>
+    </div>
+{% endblock body %}
+
+
+

@@ -1,0 +1,243 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+<style>
+body {
+  font-family: Verdana, monospace, sans-serif;
+  font-weight: bold;
+  text-align: justify;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), urL(https://images.pexels.com/photos/2280568/pexels-photo-2280568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  
+
+}
+
+.baslık1{
+  color: #fff;
+}
+.table1{
+  width: 1100px;
+  color: #fff;
+  text-align: center;
+  
+}
+.table1 tr{
+  border: 1px solid #fff;
+  text-align: center;
+  height: 50px;
+}
+
+.baslık2{
+  color: #fff;
+}
+.table2{
+  width: 1100px;
+  color: #fff;
+  text-align: center;
+  
+}
+.table2 tr{
+  border: 1px solid #fff;
+  text-align: center;
+  height: 50px;
+}
+.baslık3{
+  color: #fff;
+}
+.table3{
+  width: 1100px;
+  color: #fff;
+  text-align: center;
+  
+}
+.table3 tr{
+  height: 50px;
+  border: 1px solid #fff;
+  text-align: center;
+}
+
+</style>
+
+
+<!---                       Korona ve Lisans                    --->
+
+<br>  
+<h3 style= "text-align: center;" class="baslık1">Korona Olan ve Lisans Seviyesinde Olan Çalışanların Listesi</h3><br>
+{% if lisans %}
+<table class="table1">
+    <thead>
+      <tr bgcolor="#607D8B" align="center">
+        <th scope="col">ID</th>
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">İsim</th>
+        <th scope="col">Soyisim</th>
+        <th scope="col">Kan Grubu</th>
+        <th scope="col">Doğum Yeri</th>
+        <th scope="col">Pozisyon</th>
+        <th scope="col">Maaş</th>
+        <th scope="col">Lisans</th>
+        <th scope="col">Yüksek Lisans</th>
+        <th scope="col">Doktora</th>
+        <th scope="col">Aşı ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for l in lisans %}
+      <tr>
+        <th scope="row">{{l.eleman_id}}</th>
+        <td>{{l.tc_no}}</th>
+        <td>{{l.isim}}</th>
+        <td>{{l.soyisim}}</td>
+        <td>{{l.kan_grubu}}</td>
+        <td>{{l.dogum_yeri}}</td>
+        <td>{{l.pozisyon}}</td>
+        <td>{{l.maas}}</td>
+        <td>{{l.lisans}}</td>
+        <td>{{l.yuksek_lisans}}</td>
+        <td>{{l.doktora}}</td>
+        <td>{{l.asi_id}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table><br><br>  
+{% else %}
+<div class = "alert alert-danger">Henüz çalışanlara ait bilgi bulunmuyor...</div>
+{% endif %}
+
+
+
+<!---                   Korona ve Yüksek Lisans                     --->
+
+
+<h3 style= "text-align: center;"class="baslık2">Korona Olan ve Yüksek Lisans Seviyesinde Olan Çalışanların Listesi</h3><br>
+
+{% if ylisans %}
+<table class="table2">
+    <thead>
+      <tr bgcolor="#607D8B" align="center">
+        <th scope="col">ID</th>
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">İsim</th>
+        <th scope="col">Soyisim</th>
+        <th scope="col">Kan Grubu</th>
+        <th scope="col">Doğum Yeri</th>
+        <th scope="col">Pozisyon</th>
+        <th scope="col">Maaş</th>
+        <th scope="col">Lisans</th>
+        <th scope="col">Yüksek Lisans</th>
+        <th scope="col">Doktora</th>
+        <th scope="col">Aşı ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for yl in ylisans %}
+      <tr>
+        <th scope="row">{{yl.eleman_id}}</th>
+        <td>{{yl.tc_no}}</th>
+        <td>{{yl.isim}}</th>
+        <td>{{yl.soyisim}}</td>
+        <td>{{yl.kan_grubu}}</td>
+        <td>{{yl.dogum_yeri}}</td>
+        <td>{{yl.pozisyon}}</td>
+        <td>{{yl.maas}}</td>
+        <td>{{yl.lisans}}</td>
+        <td>{{yl.yuksek_lisans}}</td>
+        <td>{{yl.doktora}}</td>
+        <td>{{yl.asi_id}}</td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table><br><br>  
+
+{% else %}
+<div class = "alert alert-danger">Henüz çalışanlara ait bilgi bulunmuyor...</div>
+{% endif %}
+
+
+
+
+<!---                           Korona ve Doktora                       --->
+
+
+<h3 style= "text-align: center;" class="baslık3">Korona Olan ve Doktora Seviyesinde Olan Çalışanların Listesi</h3><br>
+
+{% if doktora %}
+<table class="table3">
+    <thead>
+      <tr bgcolor="#607D8B" align="center">
+        <th scope="col">ID</th>
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">İsim</th>
+        <th scope="col">Soyisim</th>
+        <th scope="col">Kan Grubu</th>
+        <th scope="col">Doğum Yeri</th>
+        <th scope="col">Pozisyon</th>
+        <th scope="col">Maaş</th>
+        <th scope="col">Lisans</th>
+        <th scope="col">Yüksek Lisans</th>
+        <th scope="col">Doktora</th>
+        <th scope="col">Aşı ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for d in doktora %}
+      <tr>
+        <th scope="row">{{d.eleman_id}}</th>
+        <td>{{d.tc_no}}</th>
+        <td>{{d.isim}}</th>
+        <td>{{d.soyisim}}</td>
+        <td>{{d.kan_grubu}}</td>
+        <td>{{d.dogum_yeri}}</td>
+        <td>{{d.pozisyon}}</td>
+        <td>{{d.maas}}</td>
+        <td>{{d.lisans}}</td>
+        <td>{{d.yuksek_lisans}}</td>
+        <td>{{d.doktora}}</td>
+        <td>{{d.asi_id}}</td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table><br><br>  
+<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+<br><br><br><br><br>
+{% else %}
+<div class = "alert alert-danger">Henüz çalışanlara ait bilgi bulunmuyor...</div>
+{% endif %}
+
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Eğitim Seviyesi', 'Kişi Sayısı'],
+          ['Lisans',     {{lisansadet}}],
+          ['Yüksek Lisans',      {{yukseklisansadet}}],
+          ['Doktora',  {{doktoraadet}}]
+        ]);
+
+        var options = {
+          title: 'İstatistikler',
+          is3D: true,
+        };
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+    </script>
+
+
+
+
+
+{% endblock body %}
+
+
+
+

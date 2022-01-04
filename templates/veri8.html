@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+<style>
+body {
+  font-family: Verdana, monospace, sans-serif;
+  font-weight: bold;
+  text-align: justify;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), urL(https://images.pexels.com/photos/2280568/pexels-photo-2280568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  
+
+}
+.baslık{
+  color: #fff;
+}
+.table{
+  color: #fff;
+  text-align: center;
+  
+}
+.table tr{
+  border: 1px solid #fff;
+  text-align: center;
+}
+
+</style>
+
+
+
+<h3 class="baslık" style= "text-align: center;">Çalışana Ait COVID Bilgisi Ekle, Sil ve Güncelle</h3><br>
+<td><a href="/veri/7" class = "btn btn-success">Covid Bilgisi Ekle</a></td>
+<td><a href="/veri/21" class = "btn btn-success">Temaslı Çalışan Ekle</a></td>
+<td><a href="/veri/25" class = "btn btn-success">Belirti Ekle</a></td>
+<td><a href="/veri/28" class = "btn btn-success">Kronik Hastalık Ekle</a></td><br><br>
+{% if covid %}
+<table class="table">
+    <thead>
+      <tr bgcolor="#607D8B" align="center" >
+        <th scope="col">ID</th>
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">Yakalandığı Tarih</th>
+        <th scope="col">Negatif Olma Tarihi</th>
+        <th scope="col">Aşı Durumu</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for c in covid %}
+      <tr>
+        <th scope="row">{{c.id}}</th>
+        <td>{{c.tc_no}}</th>
+        <td>{{c.yakalandigi_tarih}}</th>
+        <td>{{c.negatif_tarihi}}</td>
+        <td>{{c.asi_id}}</td>
+        <td><a href="/veri/8/edit/{{c.id}}" class = "btn btn-info">Güncelle</a></td>
+        <td><a href="/veri/8/delete/{{c.id}}" class = "btn btn-danger">Sil</a></td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>  
+  <br><br><br><br><br><br><br><br>
+{% else %}
+<div class = "alert alert-danger">Henüz covid olan hasta bulunmuyor...</div>
+{% endif %}
+
+
+
+
+
+
+
+
+{% endblock body %}
+
+
+
+

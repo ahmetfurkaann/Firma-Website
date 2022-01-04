@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+<style>
+body {
+  font-family: Verdana, monospace, sans-serif;
+  font-weight: bold;
+  text-align: justify;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), urL(https://images.pexels.com/photos/2280568/pexels-photo-2280568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  
+
+}
+.baslık{
+  color: #fff;
+}
+.table{
+  color: #fff;
+  text-align: center;
+  
+}
+.table tr{
+  border: 1px solid #fff;
+  text-align: center;
+}
+
+</style>
+
+
+<h3 style= "text-align: center;" class="baslık">En Sık Hasta Olan İlk 10 Kişiden Son Bir Ay İçerisinde COVID'e Yakalananların Listesi</h3><br>
+
+{% if data %}
+<table class="table">
+    <thead>
+      <tr bgcolor="#607D8B" align="center">
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">İsim</th>
+        <th scope="col">Soyisim</th>
+        <th scope="col">Yakalandığı Tarih</th>
+        <th scope="col">Negatif Olma Tarihi</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for c in data %}
+      <tr>
+        <th scope="row">{{c.tc_no}}</th>
+        <td>{{c.isim}}</th>
+        <td>{{c.soyisim}}</th>
+        <td>{{c.yakalandigi_tarih}}</th>
+        <td>{{c.negatif_tarihi}}</th>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table> 
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% else %}
+<div class = "alert alert-danger">Henüz bilgi bulunmuyor...</div>
+{% endif %}
+
+
+
+
+
+
+
+
+{% endblock body %}
+
+
+
+

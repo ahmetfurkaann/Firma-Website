@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<style>
+body {
+  font-family: Verdana, monospace, sans-serif;
+  font-weight: bold;
+  text-align: justify;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), urL(https://images.pexels.com/photos/2280568/pexels-photo-2280568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  
+
+}
+.table{
+  border: 5;
+  color: black;
+  border-radius: 10px 10px;
+}
+.kontrol_1{
+margin: 5px 100px;
+font-weight: 600;
+font-size: 30px;
+font-family: Verdana;
+padding: 10px;
+color: #fff;
+
+
+
+}
+.hosgeldınız{
+ color: #fff;
+ margin: 10px 140px;
+ 
+
+
+
+}
+.veri2 {
+  font-weight: bold;
+  color: #fff;
+  
+
+  
+}
+.veri3{
+  font-weight: bold;
+  color: #fff;
+}
+
+
+</style>
+<link rel="stylesheet" type="text/css" href="dashboard.css" />
+<br>
+
+<div class="panel">
+<div class = "row">
+    <div class = "col-md-6 offset-md-3">
+
+
+<h3 class="kontrol_1">KONTROL PANELİ</h3>
+<p class="hosgeldınız">Hoşgeldiniz, {{session["username"]}}</p>
+
+
+
+<table class="table" border-radius= "20px" border="3" width="1000px" >
+  <tr><td width="1000" height="40" align="center" bgcolor="#607D8B"><a href="/veri/2" class="veri2">Çalışan işlemleri için tıklayınız</a></td></tr>
+  <tr><td width="1000" height="40" align="center"> <a href="/veri/5" class="veri3">Çalışana ait hastalık ve reçete işlemleri için tıklayınız</a></td></tr>
+  <tr><td width="1000" height="40" align="center" bgcolor="#607D8B"><a href="/veri/8" class="veri2">Çalışana ait COVID işlemleri için tıklayınız</a></td></tr>
+  <tr><td width="1000" height="40" align="center"><a href="/veri/11" class="veri3">Çalışana ait çalışma günleri işlemleri için tıklayınız</a></td></tr>
+  <tr><td width="1000" height="40" align="center" bgcolor="#607D8B"><a href="/veri/14" class="veri2">Çalışana ait hobi işlemleri için tıklayınız</a></td></tr>
+  <tr><td width="1000" height="40" align="center"><a href="/veri/16" class="veri3">Eğitim durumu ve COVID arasındaki istatistikleri görmek için tıklayınız</a></td></tr>
+  <tr><td width="1000" height="40" align="center"bgcolor="#607D8B"><a href="/veri/17" class="veri2">Çalışanlar arasında en yaygın 3 hastalık türünü görüntülemek ve hastalığa sahip elemanları görmek için tıklayınız</a></td></tr>
+  <tr><td width="1000" height="40" align="center"><a href="/veri/18" class="veri3">Belirli şehirde doğan elemanlar arasında en sık görüntülenen ilk üç hastalığı görmek için tıklayınız</a></td></tr>
+  <tr><td width="1000" height="40" align="center"bgcolor="#607D8B"><a href="/veri/19" class="veri2">Çalışanlar arasında en yaygın kullanılan 3 ilacı ve kullananlardan korona geçirenleri görmek için tıklayınız</a></td></tr>
+  <tr><td width="1000" height="40" align="center"><a href="/veri/20" class="veri3">Belirli ilacı kullanıp korona olan kişileri görmek için tıklayınız</a></td></tr>
+<!---<a href="" class="list-group-item list-group-item-action">Biontech aşısı olan ve belirli bir hastalığı önceden geçirmiş olan çalışanlardan COVID'e yakalananları listele (10)</a>--->
+  <tr><td width="1000" height="40" align="center"bgcolor="#607D8B"><a href="/veri/30" class="veri2">Aşı vurulma durumuna göre COVID hastalığına yakalanma durumlarını görmek için tıklayınız</a></td></tr>
+  <tr><td width="1000" height="40" align="center"><a href="/veri/31" class="veri3">Belirli bir kronik hastalığa göre, çalışanların COVID testinin negatife dönmesi için geçen süreyi görmek için tıklayınız</a></td></tr>
+  <tr><td width="1000" height="40" align="center"bgcolor="#607D8B"><a href="/veri/32" class="veri2">Kan grubuna göre COVID'e yakalanma sıklığı görmek için tıklayınız</a></td></tr>
+<!---<a href=" class="list-group-item list-group-item-action">Toplam çalışma süresi ile COVID'e yakalanma arasındaki istatistiki bilgi sunulabilmelidir</a>--->
+  <tr><td width="1000" height="40" align="center"><a href="/veri/33" class="veri3">COVID'e yakalananlar arasında görülen en sık  karşılaşılan ilk 3 belirtiyi görmek için tıklayınız</a></td></tr>
+  <tr><td width="1000" height="40" align="center"bgcolor="#607D8B"><a href="/veri/34" class="veri2">En fazla temasta bulunmuş çalışanların listesini görmek için tıklayınız</a></td></tr>
+  <tr><td width="1000" height="40" align="center"><a href="/veri/35" class="veri3">Biontech ve Sinovac aşılarının etkinliği, COVID geçirme süresi göz önüne alınarak kıyaslanan listeyi görmek için tıklayınız</a></td></tr>
+  <tr><td width="1000" height="40" align="center"bgcolor="#607D8B"><a href="/veri/36" class="veri2">Haftasonu çalışan kişiler arasında COVID'e yakalanları görmek için tıklayınız</a></td></tr>
+  <tr><td width="1000" height="40" align="center"><a href="/veri/37" class="veri3">En sık hasta olan ilk 10 kişinin son bir ay içerisinde COVID'e yakalananları görmek için tıklayınız</a></td></tr>
+ <tr><td width="1000" height="40" align="center"bgcolor="#607D8B"><a href="/veri/38" class="veri3">Biontech aşısı olan ve belirli bir hastalığı önceden geçirmiş olan çalışanlardan COVID'e yakalananların listesini görmek için tıklayınız</a></td></tr>
+<!---<a href="" class="list-group-item list-group-item-action">Aşı vurulmayanlar arasında, en uzun süre COVID geçiren kişinin, son 1 yılda geçirmiş olduğu hastalıklar ve reçeteler listenelebilmelidir (18)</a> --->
+
+</table>
+
+
+
+{% endblock body %}
+
+  

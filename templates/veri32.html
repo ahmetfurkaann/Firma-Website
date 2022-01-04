@@ -1,0 +1,463 @@
+
+{% extends "layout.html" %}
+
+
+{% block body %} 
+
+<style>
+
+body {
+  font-family: Verdana, monospace, sans-serif;
+  font-weight: bold;
+  text-align: justify;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), urL(https://images.pexels.com/photos/2280568/pexels-photo-2280568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  
+
+}
+
+.baslık1{
+  color: #fff;
+}
+.table1{
+  width: 1100px;
+  color: #fff;
+  text-align: center;
+  
+}
+.table1 tr{
+  border: 1px solid #fff;
+  text-align: center;
+  height: 50px;
+}
+
+.baslık2{
+  color: #fff;
+}
+.table2{
+  width: 1100px;
+  color: #fff;
+  text-align: center;
+  
+}
+.table2 tr{
+  border: 1px solid #fff;
+  text-align: center;
+  height: 50px;
+}
+.baslık3{
+  color: #fff;
+}
+.table3{
+  width: 1100px;
+  color: #fff;
+  text-align: center;
+  
+}
+.table3 tr{
+  height: 50px;
+  border: 1px solid #fff;
+  text-align: center;
+}
+.table4{
+  width: 1100px;
+  color: #fff;
+  text-align: center;
+  
+}
+.table4 tr{
+  border: 1px solid #fff;
+  text-align: center;
+  height: 50px;
+}
+.table5{
+  width: 1100px;
+  color: #fff;
+  text-align: center;
+  
+}
+.table5 tr{
+  border: 1px solid #fff;
+  text-align: center;
+  height: 50px;
+}
+.table6{
+  width: 1100px;
+  color: #fff;
+  text-align: center;
+  
+}
+.table6 tr{
+  border: 1px solid #fff;
+  text-align: center;
+  height: 50px;
+}
+.table7{
+  width: 1100px;
+  color: #fff;
+  text-align: center;
+  
+}
+.table7 tr{
+  border: 1px solid #fff;
+  text-align: center;
+  height: 50px;
+}
+.table8{
+  width: 1100px;
+  color: #fff;
+  text-align: center;
+  
+}
+.table8 tr{
+  border: 1px solid #fff;
+  text-align: center;
+  height: 50px;
+}
+
+</style>
+
+
+<!---                       A-                   --->
+
+<br>  
+
+<h3 style= "text-align: center;" class="baslık1">A RH- Kan Grubuna Sahip Olup Korona Olanların Listesi</h3><br>
+{% if a1 %}
+<table class="table1">
+    <thead>
+      <tr bgcolor="#607D8B" align="center" >
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">İsim</th>
+        <th scope="col">Soyisim</th>
+        <th scope="col">Kan grubu</th>
+        <th scope="col">Koronaya Yakalanma Tarihi</th>
+        <th scope="col">Korona Negatif Sonucunun Tarihi</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% for l in a1 %}
+      <tr>
+        <th scope="row">{{l.tc_no}}</th>
+        <td>{{l.isim}}</th>
+        <td>{{l.soyisim}}</td>
+        <td>{{l.kan_grubu}}</td>
+        <td>{{l.yakalandigi_tarih}}</td>
+        <td>{{l.negatif_tarihi}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table><br><br>  
+{% else %}
+<div class = "alert alert-danger">Henüz bu kısıma ait bilgi bulunmuyor...</div>
+{% endif %}
+
+
+
+
+
+
+
+<h3 style= "text-align: center;" class="baslık2">A RH+ Kan Grubuna Sahip Olup Korona Olanların Listesi</h3><br>
+{% if a2 %}
+<table class="table2">
+    <thead>
+      <tr bgcolor="#607D8B" align="center">
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">İsim</th>
+        <th scope="col">Soyisim</th>
+        <th scope="col">Kan grubu</th>
+        <th scope="col">Koronaya Yakalanma Tarihi</th>
+        <th scope="col">Korona Negatif Sonucunun Tarihi</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% for l in a2 %}
+      <tr>
+        <th scope="row">{{l.tc_no}}</th>
+        <td>{{l.isim}}</th>
+        <td>{{l.soyisim}}</td>
+        <td>{{l.kan_grubu}}</td>
+        <td>{{l.yakalandigi_tarih}}</td>
+        <td>{{l.negatif_tarihi}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table><br><br>  
+{% else %}
+<div class = "alert alert-danger">Henüz bu kısıma ait bilgi bulunmuyor...</div>
+{% endif %}
+
+
+
+
+
+<h3 style= "text-align: center;" class="baslık2">B RH- Kan Grubuna Sahip Olup Korona Olanların Listesi</h3><br>
+{% if b1 %}
+<table class="table3">
+    <thead>
+      <tr bgcolor="#607D8B" align="center">
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">İsim</th>
+        <th scope="col">Soyisim</th>
+        <th scope="col">Kan grubu</th>
+        <th scope="col">Koronaya Yakalanma Tarihi</th>
+        <th scope="col">Korona Negatif Sonucunun Tarihi</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% for l in b1 %}
+      <tr>
+        <th scope="row">{{l.tc_no}}</th>
+        <td>{{l.isim}}</th>
+        <td>{{l.soyisim}}</td>
+        <td>{{l.kan_grubu}}</td>
+        <td>{{l.yakalandigi_tarih}}</td>
+        <td>{{l.negatif_tarihi}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table><br><br>  
+{% else %}
+<div class = "alert alert-danger">Henüz bu kısıma ait bilgi bulunmuyor...</div>
+{% endif %}
+
+
+
+
+
+
+
+
+<h3 style= "text-align: center;" class="baslık2">B RH+ Kan Grubuna Sahip Olup Korona Olanların Listesi</h3><br>
+{% if b2 %}
+<table class="table4">
+    <thead>
+      <tr bgcolor="#607D8B" align="center">
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">İsim</th>
+        <th scope="col">Soyisim</th>
+        <th scope="col">Kan grubu</th>
+        <th scope="col">Koronaya Yakalanma Tarihi</th>
+        <th scope="col">Korona Negatif Sonucunun Tarihi</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% for l in b2 %}
+      <tr>
+        <th scope="row">{{l.tc_no}}</th>
+        <td>{{l.isim}}</th>
+        <td>{{l.soyisim}}</td>
+        <td>{{l.kan_grubu}}</td>
+        <td>{{l.yakalandigi_tarih}}</td>
+        <td>{{l.negatif_tarihi}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table><br><br>  
+{% else %}
+<div class = "alert alert-danger">Henüz bu kısıma ait bilgi bulunmuyor...</div>
+{% endif %}
+
+
+
+
+
+
+
+<h3 style= "text-align: center;" class="baslık2">AB RH- Kan Grubuna Sahip Olup Korona Olanların Listesi</h3><br>
+{% if ab1 %}
+<table class="table5">
+    <thead>
+      <tr bgcolor="#607D8B" align="center">
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">İsim</th>
+        <th scope="col">Soyisim</th>
+        <th scope="col">Kan grubu</th>
+        <th scope="col">Koronaya Yakalanma Tarihi</th>
+        <th scope="col">Korona Negatif Sonucunun Tarihi</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% for l in ab1 %}
+      <tr>
+        <th scope="row">{{l.tc_no}}</th>
+        <td>{{l.isim}}</th>
+        <td>{{l.soyisim}}</td>
+        <td>{{l.kan_grubu}}</td>
+        <td>{{l.yakalandigi_tarih}}</td>
+        <td>{{l.negatif_tarihi}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table><br><br>  
+{% else %}
+<div class = "alert alert-danger">Henüz bu kısıma ait bilgi bulunmuyor...</div>
+{% endif %}
+
+
+
+
+
+
+
+
+
+<h3 style= "text-align: center;" class="baslık2">AB RH+ Kan Grubuna Sahip Olup Korona Olanların Listesi</h3><br>
+{% if ab2 %}
+<table class="table6">
+    <thead>
+      <tr bgcolor="#607D8B" align="center">
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">İsim</th>
+        <th scope="col">Soyisim</th>
+        <th scope="col">Kan grubu</th>
+        <th scope="col">Koronaya Yakalanma Tarihi</th>
+        <th scope="col">Korona Negatif Sonucunun Tarihi</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% for l in ab2 %}
+      <tr>
+        <th scope="row">{{l.tc_no}}</th>
+        <td>{{l.isim}}</th>
+        <td>{{l.soyisim}}</td>
+        <td>{{l.kan_grubu}}</td>
+        <td>{{l.yakalandigi_tarih}}</td>
+        <td>{{l.negatif_tarihi}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table><br><br>  
+{% else %}
+<div class = "alert alert-danger">Henüz bu kısıma ait bilgi bulunmuyor...</div>
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+<h3 style= "text-align: center;" class="baslık2">0 RH- Kan Grubuna Sahip Olup Korona Olanların Listesi</h3><br>
+{% if sıfır1 %}
+<table class="table7">
+    <thead>
+      <tr bgcolor="#607D8B" align="center">
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">İsim</th>
+        <th scope="col">Soyisim</th>
+        <th scope="col">Kan grubu</th>
+        <th scope="col">Koronaya Yakalanma Tarihi</th>
+        <th scope="col">Korona Negatif Sonucunun Tarihi</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% for l in sıfır1 %}
+      <tr>
+        <th scope="row">{{l.tc_no}}</th>
+        <td>{{l.isim}}</th>
+        <td>{{l.soyisim}}</td>
+        <td>{{l.kan_grubu}}</td>
+        <td>{{l.yakalandigi_tarih}}</td>
+        <td>{{l.negatif_tarihi}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table><br><br>  
+  
+{% else %}
+<div class = "alert alert-danger">Henüz bu kısıma ait bilgi bulunmuyor...</div>
+{% endif %}
+
+
+
+
+
+
+
+
+<h3 style= "text-align: center;" class="baslık2" >0 RH+ Kan Grubuna Sahip Olup Korona Olanların Listesi</h3><br>
+{% if sıfır2 %}
+<table class="table8">
+    <thead>
+      <tr bgcolor="#607D8B" align="center">
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">İsim</th>
+        <th scope="col">Soyisim</th>
+        <th scope="col">Kan grubu</th>
+        <th scope="col">Koronaya Yakalanma Tarihi</th>
+        <th scope="col">Korona Negatif Sonucunun Tarihi</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% for l in sıfır2 %}
+      <tr>
+        <th scope="row">{{l.tc_no}}</th>
+        <td>{{l.isim}}</th>
+        <td>{{l.soyisim}}</td>
+        <td>{{l.kan_grubu}}</td>
+        <td>{{l.yakalandigi_tarih}}</td>
+        <td>{{l.negatif_tarihi}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table><br><br>  
+  
+
+    
+  <div id="piechart_3d" style="width: 900px; height: 500px;" align="center"></div>
+  <br><br><br><br><br>
+{% else %}
+<div class = "alert alert-danger">Henüz bu kısıma ait bilgi bulunmuyor...</div>
+
+{% endif %}
+
+
+
+  <script type="text/javascript"  src="https://www.gstatic.com/charts/loader.js"></script> 
+    <script type="text/javascript">
+      
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Kan Grubu', 'Korona Olan Kişi Sayısı'],
+          ['A-',     {{ua1}}],
+          ['A+',      {{ua2}}],
+          ['B-',  {{ub1}}],
+          ['B+',     {{ub2}}],
+          ['AB-',      {{uab1}}],
+          ['AB+',  {{uab2}}],
+          ['0-',     {{usıfır1}}],
+          ['0+',      {{usıfır2}}]
+        ]);
+
+        var options = {
+          title: 'İstatistikler',
+          is3D: true,
+        };
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+      
+    </script>
+
+
+ {% endblock body %} 
+
+
+

@@ -1,0 +1,216 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+<style>
+body {
+  font-family: Verdana, monospace, sans-serif;
+  font-weight: bold;
+  text-align: justify;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), urL(https://images.pexels.com/photos/2280568/pexels-photo-2280568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  
+
+}
+.form{
+  color: #fff;
+}
+
+.baslık1{
+  color: #fff;
+}
+.table1{
+  width: 1100px;
+  color: #fff;
+  text-align: center;
+  
+}
+.table1 tr{
+  border: 1px solid #fff;
+  text-align: center;
+  height: 50px;
+}
+
+.baslık2{
+  color: #fff;
+}
+.table2{
+  width: 1100px;
+  color: #fff;
+  text-align: center;
+  
+}
+.table2 tr{
+  border: 1px solid #fff;
+  text-align: center;
+  height: 50px;
+}
+.baslık3{
+  color: #fff;
+}
+.table3{
+  width: 1100px;
+  color: #fff;
+  text-align: center;
+  
+}
+.table3 tr{
+  height: 50px;
+  border: 1px solid #fff;
+  text-align: center;
+}
+.form input[type="text"]{
+  background-color: #607D8B;
+  color: black;
+  font-weight: bold;
+
+}
+
+</style>
+
+
+<h3 style= "text-align: center;" class="baslık1">En Yaygın Kullanılan 3 İlaç</h3><br>
+
+
+<form action="/veri/19" method="POST" class="form">
+
+{% if data %}
+
+
+İlaç Adı:
+        <input type = "text" name = "hastalik_adi1" class="form-control" value="{{data[0].ilac}}" disabled/><br>
+Bu ilacı kullanan toplam kişi sayısı: 
+        <input type = "text" name = "hasta_sayisi1" class="form-control" value="{{data[0].adet_sayisi}}" disabled/><br>
+İlaç Adı:
+        <input type = "text" name = "hastalik_adi2" class="form-control" value="{{data[1].ilac}}" disabled/><br>
+Bu ilacı kullanan toplam kişi sayısı:         
+        <input type = "text" name = "hasta_sayisi2" class="form-control" value="{{data[1].adet_sayisi}}" disabled/><br>
+İlaç Adı:
+        <input type = "text" name = "hastalik_adi3" class="form-control" value="{{data[2].ilac}}" disabled/><br>
+Bu ilacı kullanan toplam kişi sayısı:         
+        <input type = "text" name = "hasta_sayisi3" class="form-control" value="{{data[2].adet_sayisi}}" disabled/><br><br>
+
+
+<h3 style= "text-align: center;" class="baslık2">{{data[0].ilac}} İlacını Kullanıp Korona Olan Çalışanların Listesi</h3>
+<table class="table1">
+    <thead>
+      <tr bgcolor="#607D8B" align="center">
+        <th scope="col" >Eleman Tc</th>
+        <th scope="col">Koronaya Yakalanma Tarihi</th>
+        <th scope="col">Korona Sonucunun Negatif Çıkma Tarihi </th>
+        <th scope="col">Kullandığı İlaç</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+     {% for d0 in data0 %} 
+      <tr>
+        <th scope="row">{{d0.tc_no}}</th>
+        <td>{{d0.yakalandigi_tarih}}</td>
+        <td>{{d0.negatif_tarihi}}</td>
+        <td>{{d0.ilac}}</td>
+      </tr>
+      {% endfor %}
+      </tbody> 
+</table><br><br>
+
+
+
+
+
+
+<h3 style= "text-align: center;" class="baslık2"> {{data[1].ilac}} İlacını Kullanıp Korona Olan Çalışanların Listesi</h3>
+<table class="table2">
+    <thead>
+      <tr bgcolor="#607D8B" align="center">
+        <th scope="col">Eleman Tc</th>
+        <th scope="col">Koronaya Yakalanma Tarihi</th>
+        <th scope="col">Korona Sonucunun Negatif Çıkma Tarihi </th>
+        <th scope="col">Kullandığı İlaç</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+     {% for d1 in data1 %} 
+      <tr>
+        <th scope="row">{{d1.tc_no}}</th>
+        <td>{{d1.yakalandigi_tarih}}</td>
+        <td>{{d1.negatif_tarihi}}</td>
+        <td>{{d1.ilac}}</td>
+      </tr>
+      {% endfor %}
+      </tbody> 
+</table><br><br>
+
+
+
+
+
+<h3 style= "text-align: center;" class="baslık3">{{data[2].ilac}} İlacını Kullanıp Korona Olan Çalışanların Listesi</h3>
+<table class="table3">
+    <thead>
+      <tr bgcolor="#607D8B" align="center">
+        <th scope="col">Eleman Tc</th>
+        <th scope="col">Koronaya Yakalanma Tarihi</th>
+        <th scope="col">Korona Sonucunun Negatif Çıkma Tarihi </th>
+        <th scope="col">Kullandığı İlaç</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+     {% for d2 in data2 %} 
+      <tr>
+        <th scope="row">{{d2.tc_no}}</th>
+        <td>{{d2.yakalandigi_tarih}}</td>
+        <td>{{d2.negatif_tarihi}}</td>
+        <td>{{d2.ilac}}</td>
+      </tr>
+      {% endfor %}
+      </tbody> 
+</table><br><br><br><br><br>
+
+
+</div>
+  </form>
+<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+<br><br><br><br><br>
+
+{% else %}
+<div class = "alert alert-danger">Henüz bilgi bulunmuyor...</div>
+{% endif %}
+
+
+
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['İlaç Adı', 'Kullanan Kişi Sayısı'],
+          ['{{data[0].ilac}}',     {{bir}}],
+          ['{{data[1].ilac}}',      {{iki}}],
+          ['{{data[2].ilac}}',  {{uc}}]
+        ]);
+
+        var options = {
+          title: 'İstatistikler',
+          is3D: true,
+        };
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+    </script>
+
+
+
+
+{% endblock body %}
+
+
+
+

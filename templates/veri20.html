@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+<style>
+body {
+  font-family: Verdana, monospace, sans-serif;
+  font-weight: bold;
+  text-align: justify;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), urL(https://images.pexels.com/photos/2280568/pexels-photo-2280568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  
+
+}
+.baslık{
+  color: #fff;
+}
+.table{
+  color: #fff;
+  text-align: center;
+  
+}
+.table tr{
+  border: 1px solid #fff;
+  text-align: center;
+}
+.buton{
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius:5px 5px;
+    width: 60px;
+    height: 40px;
+
+
+}
+</style>
+
+
+
+<h3 style= "text-align: center;" class="baslık">Belirli Bir İlacın Kullanımına Göre Korona Olan Çalışanların Listesi</h3><br>
+
+
+<form action="http://127.0.0.1:5000/veri/20" method="POST">
+<input type="text" name = "ilacadi" class="input-sm" maxlength="64" placeholder="Ara...">
+<button type="submit" class="buton">Ara</button>
+</form><br><br>
+
+
+{% if data %}
+<h3 style= "text-align: center;" class="baslık">{{ilacadi}} İlacını Kullanıp Korona Olan Çalışanların Listesi</h3>
+<table class="table">
+    <thead>
+      <tr bgcolor="#607D8B" align="center">
+        <th scope="col">TC Kimlik Numarası</th>
+        <th scope="col">Koronaya Yakalanma Tarihi</th>
+        <th scope="col">Korona Sonucunun Negatif Çıkma Tarihi</th>
+        <th scope="col">Kullandığı İlaç</th>
+
+      </tr>
+    </thead>
+    <tbody>
+    
+     {% for d in data %} 
+      <tr>
+        <th scope="row">{{d.tc_no}}</th>
+        <td>{{d.yakalandigi_tarih}}</td>
+        <td>{{d.negatif_tarihi}}</td>
+        <td>{{d.ilac}}</td>
+      </tr>
+      {% endfor %}
+      </tbody> 
+</table>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+{% else %}
+<div class = "alert alert-danger">Henüz bir veri girilmedi!</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+{% endif %}
+
+
+{% endblock body %}
+
+
+
+

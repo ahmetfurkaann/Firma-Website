@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<style>
+body {
+  font-family: Verdana, monospace, sans-serif;
+  font-weight: bold;
+  text-align: justify;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), urL(https://images.pexels.com/photos/2280568/pexels-photo-2280568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  
+
+}
+.baslık{
+  color: #fff;
+  font-weight: bold;
+}
+
+.baslık input[type="submit"]{
+  margin: 5px 120px;
+}
+
+
+</style>
+
+<br><br><br><br>
+
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div>
+        <form action="/veri/2/edit/{{employee.eleman_id}}" method="POST" class="baslık">
+
+                ID<br>
+                <input type = "text" name = "id" value="{{employee.eleman_id}}" class="form-control" disabled/><br>  
+          
+                Tc Kimlik Numarası<br>
+                <input type = "text" name = "tcno" value="{{employee.tc_no}}" class="form-control"/><br>
+
+                İsim<br>
+                <input type = "text" name = "isim" value="{{employee.isim}}"  class="form-control"/><br>
+ 
+                Soyisim<br>
+                <input type="text" name = "soyisim" value="{{employee.soyisim}}"  class="form-control"><br>
+ 
+                Kan Grubu<br>
+                <input type = "text" name = "kangrubu" value="{{employee.kan_grubu}}"  class="form-control"/><br>
+ 
+                Doğduğu Şehir<br>
+                <input type = "text" name = "sehir" value="{{employee.dogum_yeri}}"  class="form-control"/><br>
+ 
+                Pozisyon<br>
+                <input type = "text" name = "pozisyon" value="{{employee.pozisyon}}"  class="form-control"/><br> 
+
+                Maaş<br>
+                <input type = "text" name = "maas" value="{{employee.maas}}"  class="form-control"/><br> 
+
+                Lisans<br>
+                <input type = "text" name = "lisans" value="{{employee.lisans}}"  class="form-control"/><br>
+                 
+                Yüksek lisans<br>
+                <input type = "text" name = "yukseklisans" value="{{employee.yuksek_lisans}}"  class="form-control"/><br>
+
+                Doktora<br>
+                <input type = "text" name = "doktora" value="{{employee.doktora}}"  class="form-control"/><br>
+
+                Aşı Durumu 
+                [0: Aşı olunmamış | 1: Sinovac | 2:Biontech]<br>
+                <input type = "text" name = "asidurumu" value="{{employee.asi_id}}"  class="form-control"/><br>
+
+            <input type = "submit" value = "Güncelle" class="btn btn-success"/><br>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <br><br><br>
+
+
+
+
+
+{% endblock body %}
+
+
+
+

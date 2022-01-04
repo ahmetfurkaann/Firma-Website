@@ -1,0 +1,203 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+<style>
+body {
+  font-family: Verdana, monospace, sans-serif;
+  font-weight: bold;
+  text-align: justify;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), urL(https://images.pexels.com/photos/2280568/pexels-photo-2280568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  
+
+}
+.form{
+  color: #fff;
+}
+
+.baslık{
+  color: #fff;
+}
+.table1{
+  width: 1100px;
+  color: #fff;
+  text-align: center;
+  
+}
+.table1 tr{
+  border: 1px solid #fff;
+  text-align: center;
+  height: 50px;
+}
+
+.table2{
+  width: 1100px;
+  color: #fff;
+  text-align: center;
+  
+}
+.table2 tr{
+  border: 1px solid #fff;
+  text-align: center;
+  height: 50px;
+}
+.table3{
+  width: 1100px;
+  color: #fff;
+  text-align: center;
+  
+}
+.table3 tr{
+  height: 50px;
+  border: 1px solid #fff;
+  text-align: center;
+}
+.form input[type="text"]{
+  background-color: #607D8B;
+  color: black;
+  font-weight: bold;
+
+}
+
+</style>
+
+
+<form action="/veri/35" method="POST">
+
+
+
+
+
+<!--<h3 style= "text-align: center;" class="baslık"> Aşı Durumuna Göre Koronayı Kaç Günde Atlattıkları Bilgisi</h3><br><br>-->
+
+
+<h3 style= "text-align: center;" class="baslık"> Aşı Olmayanların Koronayı Kaç Günde Atlattıkları Bilgisi</h3><br>
+{% if asisiz %}
+<br><br><br>
+<table class="table1">
+    <thead>
+      <tr bgcolor="#607D8B" align="center">
+        <th scope="col">Çalışan TC</th>
+        <th scope="col">Çalışanın İsmi</th>
+        <th scope="col">Çalışanın Soyismi</th>
+        <th scope="col">Kaç Günde Negatif Oldu?</th>
+        <th scope="col">Aşı ID</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+     {% for d in asisiz %} 
+      <tr>
+        <th scope="row">{{d.tc_no}}</th>
+        <td>{{d.isim}}</td>
+        <td>{{d.soyisim}}</td>
+        <td>{{d.fark}}</td>
+        <td>{{d.asi_id}}</td>
+      </tr>
+      {% endfor %}
+      </tbody> 
+</table><br><br><br>
+
+{% else %}
+<div class = "alert alert-danger">Henüz bilgi bulunmuyor...</div>
+{% endif %}
+
+
+
+
+
+<h3 style= "text-align: center;" class="baslık"> Sinovac Aşısı Olanların Koronayı Kaç Günde Atlattıkları Bilgisi</h3><br>
+{% if sinovac %}
+<table class="table2">
+    <thead>
+      <tr bgcolor="#607D8B" align="center">
+        <th scope="col">Çalışan TC</th>
+        <th scope="col">Çalışanın İsmi</th>
+        <th scope="col">Çalışanın Soyismi</th>
+        <th scope="col">Kaç Günde Negatif Oldu?</th>
+        <th scope="col">Aşı ID</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+     {% for d in sinovac %} 
+      <tr>
+        <th scope="row">{{d.tc_no}}</th>
+        <td>{{d.isim}}</td>
+        <td>{{d.soyisim}}</td>
+        <td>{{d.fark}}</td>
+        <td>{{d.asi_id}}</td>
+      </tr>
+      {% endfor %}
+      </tbody> 
+</table><br><br><br>
+
+
+{% else %}
+<div class = "alert alert-danger">Henüz bilgi bulunmuyor...</div>
+{% endif %}
+
+
+
+
+<h3 style= "text-align: center;" class="baslık"> Biontech Aşısı Olanların Koronayı Kaç Günde Atlattıkları Bilgisi</h3><br>
+{% if biontech %}
+<table class="table3">
+    <thead>
+      <tr bgcolor="#607D8B" align="center">
+        <th scope="col">Çalışan TC</th>
+        <th scope="col">Çalışanın İsmi</th>
+        <th scope="col">Çalışanın Soyismi</th>
+        <th scope="col">Kaç Günde Negatif Oldu?</th>
+        <th scope="col">Aşı ID</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+     {% for d in biontech %} 
+      <tr>
+        <th scope="row">{{d.tc_no}}</th>
+        <td>{{d.isim}}</td>
+        <td>{{d.soyisim}}</td>
+        <td>{{d.fark}}</td>
+        <td>{{d.asi_id}}</td>
+      </tr>
+      {% endfor %}
+      </tbody> 
+</table><br><br><br>
+
+<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+<br><br><br><br><br>
+{% else %}
+<div class = "alert alert-danger">Henüz bilgi bulunmuyor...</div>
+{% endif %}
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Aşı Adı', 'Kişi Sayısı'],
+          ['Aşı Olmayan',     {{bir}}],
+          ['Sinovac',      {{iki}}],
+          ['Biontech',  {{uc}}]
+        ]);
+
+        var options = {
+          title: 'İstatistikler',
+          is3D: true,
+        };
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+    </script>
+
+{% endblock body %}
+
+
+
+

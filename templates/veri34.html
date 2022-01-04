@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+<style>
+body {
+  font-family: Verdana, monospace, sans-serif;
+  font-weight: bold;
+  text-align: justify;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), urL(https://images.pexels.com/photos/2280568/pexels-photo-2280568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  
+
+}
+.baslık{
+  color: #fff;
+}
+.table{
+  color: #fff;
+  text-align: center;
+  
+}
+.table tr{
+  border: 1px solid #fff;
+  text-align: center;
+}
+
+</style>
+
+
+<form action="/veri/34" method="POST">
+
+
+
+
+<h3 style= "text-align: center;" class="baslık"> Temas Eden ve Temas Edilen Çalışanların Listesi</h3><br>
+{% if data %}
+<table class="table">
+    <thead>
+      <tr bgcolor="#607D8B" align="center">
+        <th scope="col">Hasta TC</th>
+        <th scope="col">Hastanın İsmi</th>
+        <th scope="col">Hastanın Soyismi</th>
+        <th scope="col">Temas Ettiği Kişinin TC'si</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+     {% for d in data %} 
+      <tr>
+        <th scope="row">{{d.tc_no}}</th>
+        <td>{{d.isim}}</td>
+        <td>{{d.soyisim}}</td>
+        <td>{{d.temasli_tcno}}</td>
+      </tr>
+      {% endfor %}
+      </tbody> 
+</table>
+<br><br><br>
+
+
+
+
+{% else %}
+<div class = "alert alert-danger">Henüz bilgi bulunmuyor...</div>
+<br><br><br><br><br><br><br>
+{% endif %}
+
+
+{% endblock body %}
+
+
+
+

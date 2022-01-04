@@ -1,0 +1,203 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+<style>
+body {
+  font-family: Verdana, monospace, sans-serif;
+  font-weight: bold;
+  text-align: justify;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), urL(https://images.pexels.com/photos/2280568/pexels-photo-2280568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  
+
+}
+.form{
+  color: #fff;
+}
+
+.baslık{
+  color: #fff;
+}
+.table1{
+  width: 1100px;
+  color: #fff;
+  text-align: center;
+  
+}
+.table1 tr{
+  border: 1px solid #fff;
+  text-align: center;
+  height: 50px;
+}
+.table2{
+  width: 1100px;
+  color: #fff;
+  text-align: center;
+  
+}
+.table2 tr{
+  border: 1px solid #fff;
+  text-align: center;
+  height: 50px;
+}
+.table3{
+  width: 1100px;
+  color: #fff;
+  text-align: center;
+  
+}
+.table3 tr{
+  height: 50px;
+  border: 1px solid #fff;
+  text-align: center;
+}
+.form input[type="text"]{
+  background-color: #607D8B;
+  color: black;
+  font-weight: bold;
+
+}
+
+</style>
+
+
+<h3 style= "text-align: center;" class="baslık">En Yaygın 3 Belirti Türü</h3><br>
+
+
+<form action="/veri/33" method="POST" class="form">
+
+{% if data %}
+
+
+Hastalık Adı:
+        <input type = "text" name = "belirti_adi1" class="form-control" value="{{data[0].belirti_ismi}}" disabled/><br>
+Bu hastalığa yakalanan toplam kişi sayısı: 
+        <input type = "text" name = "hasta_sayisi1" class="form-control" value="{{data[0].gorulme_sayisi}}" disabled/><br>
+Hastalık Adı:
+        <input type = "text" name = "belirti_adi2" class="form-control" value="{{data[1].belirti_ismi}}" disabled/><br>
+Bu hastalığa yakalanan toplam kişi sayısı:         
+        <input type = "text" name = "hasta_sayisi2" class="form-control" value="{{data[1].gorulme_sayisi}}" disabled/><br>
+Hastalık Adı:       
+        <input type = "text" name = "belirti_adi3" class="form-control" value="{{data[2].belirti_ismi}}" disabled/><br>
+Bu hastalığa yakalanan toplam kişi sayısı:         
+        <input type = "text" name = "hasta_sayisi3" class="form-control" value="{{data[2].gorulme_sayisi}}" disabled/><br><br><br>
+
+
+<h3 style= "text-align: center;" class="baslık">Koronayken {{data[0].belirti_ismi}} Belirtisi Olan Çalışanların Listesi</h3><br>
+<table class="table1">
+    <thead>
+      <tr bgcolor="#607D8B" align="center">
+        <th scope="col">Eleman Tc</th>
+        <th scope="col">Eleman İsim</th>
+        <th scope="col">Eleman Soyisim</th>
+        <th scope="col">Belirti Adı</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+     {% for d0 in data0 %} 
+      <tr>
+        <th scope="row">{{d0.tc_no}}</th>
+        <td>{{d0.isim}}</td>
+        <td>{{d0.soyisim}}</td>
+        <td>{{d0.belirti_ismi}}</td>
+      </tr>
+      {% endfor %}
+      </tbody> 
+</table><br><br><br>
+
+
+
+
+
+
+<h3 style= "text-align: center;"class="baslık"> Koronayken {{data[1].belirti_ismi}} Belirtisi Olan Çalışanların Listesi</h3><br>
+<table class="table2">
+    <thead>
+      <tr bgcolor="#607D8B" align="center">
+        <th scope="col">Eleman Tc</th>
+        <th scope="col">Eleman İsim</th>
+        <th scope="col">Eleman Soyisim</th>
+        <th scope="col">Belirti Adı</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+     {% for d1 in data1 %} 
+      <tr>
+        <th scope="row">{{d1.tc_no}}</th>
+        <td>{{d1.isim}}</td>
+        <td>{{d1.soyisim}}</td>
+        <td>{{d1.belirti_ismi}}</td>
+      </tr>
+      {% endfor %}
+      </tbody> 
+</table><br><br><br>
+
+
+
+
+
+<h3 style= "text-align: center;" class="baslık">Koronayken {{data[2].belirti_ismi}} Belirtisi Olan Çalışanların Listesi</h3><br>
+<table class="table3">
+    <thead>
+      <tr bgcolor="#607D8B" align="center">
+        <th scope="col">Eleman Tc</th>
+        <th scope="col">Eleman İsim</th>
+        <th scope="col">Eleman Soyisim</th>
+        <th scope="col">Belirti Adı</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+     {% for d2 in data2 %} 
+      <tr>
+        <th scope="row">{{d2.tc_no}}</th>
+        <td>{{d2.isim}}</td>
+        <td>{{d2.soyisim}}</td>
+        <td>{{d2.belirti_ismi}}</td>
+      </tr>
+      {% endfor %}
+      </tbody> 
+</table><br><br><br>
+
+
+</div>
+  </form>
+<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+<br><br><br><br><br>
+{% else %}
+<div class = "alert alert-danger">Henüz bilgi bulunmuyor...</div>
+{% endif %}
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Belirti Adı', 'Belirti Gösteren Kişi Sayısı'],
+          ['{{data[0].belirti_ismi}}', {{sifir}}],
+          ['{{data[1].belirti_ismi}}', {{bir}}],
+          ['{{data[2].belirti_ismi}}', {{iki}}]
+        ]);
+
+        var options = {
+          title: 'İstatistikler',
+          is3D: true,
+        };
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+    </script>
+
+
+{% endblock body %}
+
+
+
+

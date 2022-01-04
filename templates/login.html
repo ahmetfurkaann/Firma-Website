@@ -1,0 +1,127 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+<style>
+body{
+ font-family: Verdana, monospace, sans-serif;
+ font-weight: bold;
+ text-align: justify;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-image:linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)), url(https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  
+}
+
+.box{
+    background-color: #00838F;
+     width: 360px;
+     height: 400px;
+     padding: 60px;
+     margin: 50px 500px ;
+     border: 10px black;
+     border-radius: 40px 40px;
+     text-align: center;
+     
+
+     
+}
+.box input[type= "text"], .box input[type="password"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 8px 10px;
+    width:200px;
+    outline: none;
+    color: white;
+    border-radius: 20px;
+}
+
+
+.baslık{
+font-weight: 600;
+font-size: 25px;
+font-family: Verdana;
+text-align: center;
+}
+.deneme{
+font-family:Monospace;
+color: black;
+
+}
+.box input[type= "submit"]{
+
+cursor: pointer;
+font-size: 16px;
+font-family: Verdana #FFFFFF;
+width: 100px;
+height:40px;
+border-radius:50px;
+border: none;
+background: #FFF;
+
+
+
+}
+input:valid{
+    border-color: green;
+}
+input:valid + span::before{
+    content: '✔';
+    color: green;
+}
+input:invalid{
+    border-color: tomato;
+}
+input:invalid + span::before{
+    content: '×';
+    color: tomato;
+}
+</style>
+ <link rel="stylesheet" type="text/css" href="login.css" />
+
+
+<br>
+
+<div class="login">
+<div class = "row">
+    <div class = "col-md-6 offset-md-3">
+    
+        
+
+            {% from "includes/formhelpers.html" import render_field %}
+            <form class ="box" method="post" > 
+            <h3 class="baslık">GİRİŞ</h3><br>      
+            <input type = "text" name = "username" placeholder= "Kullanıcı Adı" class="form-control"/>
+ 
+            <br>
+            <input type = "password" name = "password" placeholder = "Parola" class="form-control"/><br>
+                
+            <button type="submit"class="btn">Giriş Yap</button>
+            </form>
+            </div>
+    </div>
+
+</div>
+<br><br><br><br><br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock body %}
