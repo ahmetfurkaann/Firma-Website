@@ -1,4 +1,4 @@
-# Otomata Projesi
+# Web Sitesi Projesi
 
 COVID 19 Pandemisinde bir şirket, bünyesinde çalıştırdığı elemanları ile ilgili sağlık durumu bilgilerini depolayan ve belirli sorgular ile filtreleme yapan bir websitesidir.
 
